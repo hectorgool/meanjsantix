@@ -1,0 +1,76 @@
+<section data-ng-controller="ItemsController" data-ng-init="find()">
+
+
+	<div class="page-header">
+		<h1>Items</h1>
+	</div>
+	
+
+	<div ng-repeat="item in items" ng-if="$index % 3 == 0" class="row">
+
+	    <div class="col-md-4">
+	    	<div class="panel panel-default">
+				<div class="panel-body">
+				<img src="modules/core/img/django.jpg" class="img-responsive">
+				<small class="list-group-item-text">
+					Posted on
+					<span data-ng-bind="items[$index].created | date:'mediumDate'"></span>
+					by
+					<span data-ng-bind="items[$index].user.displayName"></span>
+				</small>
+
+				<a data-ng-href="#!/item/{{items[$index].slug}}">
+					<h4 class="list-group-item-heading" data-ng-bind="items[$index].name"></h4>
+				</a>
+				<p class="list-group-item-text" data-ng-bind="items[$index].slug"></p>
+				<p class="list-group-item-text" data-ng-bind="items[$index].description"></p>
+				</div>
+			</div>
+	    </div>
+
+	    <div class="col-md-4">
+	    	<div class="panel panel-default">
+				<div class="panel-body">
+				<img src="modules/core/img/django.jpg" class="img-responsive">	    	
+				<small class="list-group-item-text">
+					Posted on
+					<span data-ng-bind="items[$index+1].created | date:'mediumDate'"></span>
+					by
+					<span data-ng-bind="items[$index+1].user.displayName"></span>
+				</small>
+
+				<a data-ng-href="#!/item/{{items[$index+1].slug}}">
+					<h4 class="list-group-item-heading" data-ng-bind="items[$index+1].name"></h4>
+				</a>
+				<p class="list-group-item-text" data-ng-bind="items[$index+1].slug"></p>
+				<p class="list-group-item-text" data-ng-bind="items[$index+1].description"></p>
+				</div>
+			</div>						
+	    </div>
+
+	    <div class="col-md-4">
+	    	<div class="panel panel-default">
+				<div class="panel-body">
+				<img src="modules/core/img/django.jpg" class="img-responsive">
+				<small class="list-group-item-text">
+					Posted on
+					<span data-ng-bind="items[$index+2].created | date:'mediumDate'"></span>
+					by
+					<span data-ng-bind="items[$index+2].user.displayName"></span>
+				</small>
+				<a data-ng-href="#!/item/{{items[$index+2].slug}}">
+					<h4 class="list-group-item-heading" data-ng-bind="items[$index+2].name"></h4>
+				</a>
+				<p class="list-group-item-text" data-ng-bind="items[$index+2].slug"></p>
+				<p class="list-group-item-text" data-ng-bind="items[$index+2].description"></p>
+				</div>
+			</div>						
+	    </div>
+
+	</div>
+
+	<div class="alert alert-warning text-center" data-ng-if="items.$resolved && !items.length">
+		No items yet, why don't you <a href="/#!/items/create">create one</a>?
+	</div>
+
+</section>

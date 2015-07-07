@@ -1,0 +1,62 @@
+<section class="row" data-ng-controller="AuthenticationController">
+
+	<h3 class="col-md-6 col-md-offset-3 text-center">Sign in using your social accounts</h3>
+
+	<div class="col-md-6 col-md-offset-3 text-center">
+		<a href="/auth/facebook" class="undecorated-link">
+			<img src="/modules/users/img/buttons/facebook.png">
+		</a>
+		<a href="/auth/twitter" class="undecorated-link">
+			<img src="/modules/users/img/buttons/twitter.png">
+		</a>
+		<a href="/auth/google" class="undecorated-link">
+			<img src="/modules/users/img/buttons/google.png">
+		</a>
+		<a href="/auth/linkedin" class="undecorated-link">
+			<img src="/modules/users/img/buttons/linkedin.png">
+		</a>
+		<!--
+		<a href="/auth/github" class="undecorated-link">
+			<img src="/modules/users/img/buttons/github.png">
+		</a>
+		-->
+	</div>
+
+	<h3 class="col-md-6 col-md-offset-3 text-center">Or with your account</h3>
+
+	<div class="col-md-6 col-md-offset-3">
+		<form data-ng-submit="signin()" class="signin form-horizontal" autocomplete="off">
+			<fieldset>
+				<div class="form-group">
+					<label for="username">Username</label>
+					<input type="text" id="username" name="username" class="form-control input-lg" data-ng-model="credentials.username" placeholder="Username">
+				</div>
+				<div class="form-group">
+					<label for="password">Password</label>
+					<input type="password" id="password" name="password" class="form-control input-lg" data-ng-model="credentials.password" placeholder="Password">
+				</div>
+
+				<div class="text-center form-group">
+					<button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+
+					<h3 class="text-center">Or</h3>
+
+					<a class="btn btn-default btn-lg btn-block" href="/#!/signup">Sign up</a>
+
+					<a class="btn btn-default btn-lg btn-block" href="/#!/password/forgot">Forgot your password?</a>	
+
+				</div>
+
+				<!--<div class="forgot-password">
+					<a class="btn btn-default btn-lg btn-block" href="/#!/password/forgot">Forgot your password?</a>
+				</div>-->
+
+				<div data-ng-show="error" class="text-center text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+
+			</fieldset>
+		</form>
+	</div>
+
+</section>
