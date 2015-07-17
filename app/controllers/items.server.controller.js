@@ -73,7 +73,8 @@ exports.delete = function(req, res) {
  * List of Items
  */
 exports.list = function(req, res) {
-	Item.find().sort('-created').populate('user', 'displayName').exec(function(err, items) {
+	//santo: populate, select double field
+	Item.find().sort('-created').populate('user', {'displayName':'displayName','username':'username'}).exec(function(err, items) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -131,7 +132,7 @@ exports.itemBySlug = function(req, res, next, slug) {
 		});
 	}
 	*/
-	Item.findOne({'slug' : slug}).populate('user', 'displayName').exec(function(err, item) {
+	Item.findOne({'slug' : slug}).populate('user', {'displayName':'displayName','username':'username'}).exec(function(err, item) {
 		if (err) return next(err);
 		if (!item) {
 			return res.status(404).send({

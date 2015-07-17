@@ -1,25 +1,176 @@
 <section data-ng-controller="ItemsController" data-ng-init="findOneSlug()">
-	<div class="page-header">
-		<h1 data-ng-bind="item.name"></h1>
-	</div>
+
+
+	<!--start:search-->
+	<div ng-include src="'modules/search/views/box-search.client.view.html'"></div>
 	<!--
-	<div class="pull-right" data-ng-show="authentication.user._id == item.user._id">
-		<a class="btn btn-primary" href="/#!/items/{{item._id}}/edit">
-			<i class="glyphicon glyphicon-edit"></i>
-		</a>
-		<a class="btn btn-primary" data-ng-click="remove();">
-			<i class="glyphicon glyphicon-trash"></i>
-		</a>
+	<div id="row">
+		<div class="col-md-12">
+			<p>
+				<div class="input-group">
+					<input class="form-control input-lg" type="text" placeholder="Search item">
+					<span class="input-group-addon btn-white">
+						<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+					</span>
+				</div>
+			</p>
+		</div>
 	</div>
 	-->
-	{{item|json}}
-	<small>
-		<em class="text-muted">
-			**Posted on
-			<span data-ng-bind="item.created | date:'mediumDate'"></span>
-			by
-			<span data-ng-bind="item.user.displayName"></span>
-		</em>
-	</small>
-	<p class="lead" data-ng-bind="item.description"></p>
+	<!--end:search-->
+
+
+	<div class="col-md-6">
+		<div class="panel panel-default">
+
+			<div class="panel-body">
+
+				<h1>
+					<span data-ng-bind="item.name"></span> 
+					<a href="#!/catalog/{{item.user.username}}"><small>@<span data-ng-bind="item.user.displayName"></span></small></a>
+				</h1>					
+				
+				<h3>
+					<strong>
+						$ <span id="price">33.33</span> <small>MXN</small>
+					</strong>
+				</h3>
+
+				<dl>
+
+					<dt>
+						<strong>
+							Description
+						</strong>
+					</dt>
+
+					<dd>
+						<span class="lead" data-ng-bind="item.description"></span>
+					</dd>
+
+					<dt>
+						<strong>
+							Quantity
+						</strong>
+					</dt>
+
+					<dd>
+						<select class="form-control input-lg">
+							<option>1</option>
+						  	<option>2</option>
+						  	<option>3</option>
+						  	<option>4</option>
+						  	<option>5</option>
+						</select>
+					</dd>
+
+				</dl>
+
+				<a href="#" id="morepics" type="button" class="btn btn-default btn-lg btn-block">
+					<span class="glyphicon glyphicon-picture" aria-hidden="true"></span> 
+					More pics
+				</a>
+
+				<button id="askAQuestion" type="button" class="btn btn-default btn-lg btn-block">
+					<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Ask a question
+				</button>
+
+				<button id="addToCart" type="button" class="btn btn-default btn-lg btn-block">
+					<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to cart
+				</button>
+
+			</div>
+
+			<div class="panel-footer">
+
+				<span class="glyphicon glyphicon-share" aria-hidden="true"></span> Share: 
+		
+				<!--start:bootstrap social-->
+				<a class="btn btn-social-icon btn-lg btn-twitter">
+					<i class="fa fa-twitter"></i>
+					</a>
+				<a class="btn btn-social-icon btn-lg btn-pinterest">
+					<i class="fa fa-pinterest"></i>
+					</a>
+				<a class="btn btn-social-icon btn-lg btn-facebook">
+					<i class="fa fa-facebook"></i>
+					</a>
+				<a class="btn btn-social-icon btn-lg btn-google-plus">
+					<i class="fa fa-google-plus"></i>
+					</a>
+				<a class="btn btn-social-icon btn-lg btn-tumblr">
+					<i class="fa fa-tumblr"></i>
+					</a>					
+				<!--end:bootstrap social-->
+
+			</div>
+
+		</div>
+	</div>
+
+
+	<div class="col-md-6">
+		<div class="panel panel-default">
+			<div class="panel-body">
+
+				<center>
+					<!-- Button trigger modal -->
+					<div id="modal" href="#" data-toggle="modal" data-target="#images">
+						<img src="modules/core/img/django.jpg" class="img-responsive" alt="Responsive images">
+					</div>
+				</center>
+
+				<!-- Modal -->
+				<div class="modal fade" id="images" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				  	<div class="modal-dialog modal-lg">
+					    <div class="modal-content">
+
+					      	<div class="modal-header">
+					        	<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					        	<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+					      	</div>
+					      	
+					      	<div class="modal-body">
+
+					       		<div class="galleria">
+					       			<img src="" class="img-responsive" alt="Responsive image">
+					       		</div>
+					       		
+					      	</div>
+
+					      	<div class="modal-footer">
+					        	<button type="button" class="btn btn-default" data-dismiss="modal">
+					        		<span data-lift="Loc.i">button.close</span>
+					        	</button>
+					      	</div>
+
+					    </div>
+				  	</div>
+				</div>
+				
+
+			</div>	
+
+		</div>
+	</div>	
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
+
+
+
+
+
+
+
+

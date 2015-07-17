@@ -6,6 +6,52 @@
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
+
+var dimensionsSchema = new Schema({
+	width: {
+		type: Number,
+		default: 0.0
+	},
+	height: {
+		type: Number,
+		default: 0.0
+	},
+	depth: {
+		type: Number,
+		default: 0.0
+	}
+});
+
+
+var shippingSchema = new Schema({ 
+	weight: {
+		type: Number,
+		default: 0.0
+	},
+	dimensions: [dimensionsSchema]
+});
+
+
+var pricingSchema = new Schema({ 
+	list: {
+		type: Number,
+		default: 0.0
+	},
+	retail: {
+		type: Number,
+		default: 0.0
+	},
+	savings: {
+		type: Number,
+		default: 0.0
+	},
+	pct_savings: {
+		type: Number,
+		default: 0.0
+	}
+});
+
+
 /**
  * Item Schema
  */
@@ -40,51 +86,6 @@ var ItemSchema = new Schema({
 	},
 	shipping: [shippingSchema],
 	pricing: [pricingSchema]
-});
-
-
-var shippingSchema = new Schema({ 
-	weight: {
-		type: Number,
-		default: 0.0
-	},
-	dimensions: [dimensionsSchema]
-});
-
-
-var dimensionsSchema = new Schema({
-	width: {
-		type: Number,
-		default: 0.0
-	},
-	height: {
-		type: Number,
-		default: 0.0
-	},
-	depth: {
-		type: Number,
-		default: 0.0
-	}
-});
-
-
-var pricingSchema = new Schema({ 
-	list: {
-		type: Number,
-		default: 0.0
-	},
-	retail: {
-		type: Number,
-		default: 0.0
-	},
-	savings: {
-		type: Number,
-		default: 0.0
-	},
-	pct_savings: {
-		type: Number,
-		default: 0.0
-	}
 });
 
 

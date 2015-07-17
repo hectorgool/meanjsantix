@@ -1,6 +1,15 @@
+/*santo*/
+body { 
+  padding-top: 60px; /*http://getbootstrap.com/components/#navbar-fixed-top*/
+  padding-bottom: 60px;
+  background: #FAFAFA !important;
+}
+
+/*
 .content {
 	margin-top: 50px;
 }
+*/
 .undecorated-link:hover {
 	text-decoration: none;
 }
